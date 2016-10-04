@@ -1,9 +1,10 @@
 package sortedbits.functionaljava;
 
+import static sortedbits.functionaljava.test.TestUtils.assertThrows;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import static sortedbits.functionaljava.Test.assertThrows;
 import org.junit.Test;
 
 public class Test1 {
