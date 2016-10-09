@@ -1,8 +1,11 @@
-package sortedbits.functionaljava.test;
+package com.sortedbits.functionaljava.utils;
 
 import static org.junit.Assert.fail;
 
 public class TestUtils {
+	
+	private TestUtils() {		
+	}
 	
 	public static <X extends Throwable> Throwable assertThrows(final Class<X> exceptionClass, final Runnable block) {
 		try {

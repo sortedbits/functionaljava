@@ -1,12 +1,12 @@
-package sortedbits.functionaljava;
+package com.sortedbits.functionaljava.throwing;
 
 import java.util.function.Supplier;
 
 @FunctionalInterface
-public interface ThrowingSupplier<T> extends Supplier<T> {
+public interface ThrowingSupplier<A> extends Supplier<A> {
 
 	@Override
-	default T get() {
+	default A get() {
 		try {
 			return getThrows();
 		} catch (Exception e) {
@@ -14,6 +14,6 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
 		}
 	}
 
-	T getThrows() throws Exception;
+	A getThrows() throws Exception;
 	
 }

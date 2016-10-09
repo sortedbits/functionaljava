@@ -1,12 +1,12 @@
-package sortedbits.functionaljava;
+package com.sortedbits.functionaljava.throwing;
 
 import java.util.function.Function;
 
 @FunctionalInterface
-public interface ThrowingFunction<T, R> extends Function<T, R> {
+public interface ThrowingFunction<A, B> extends Function<A, B> {
 	
 	@Override
-	default R apply(T arg) {
+	default B apply(A arg) {
 		try {
 			return applyThrows(arg);
 		} catch (Exception e) {
@@ -14,6 +14,6 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
 		}		
 	}
 	
-	R applyThrows(T arg) throws Exception;
+	B applyThrows(A arg) throws Exception;
 		
 }

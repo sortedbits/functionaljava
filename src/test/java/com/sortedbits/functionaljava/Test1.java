@@ -1,11 +1,13 @@
-package sortedbits.functionaljava;
+package com.sortedbits.functionaljava;
 
-import static sortedbits.functionaljava.test.TestUtils.assertThrows;
+import static com.sortedbits.functionaljava.utils.TestUtils.assertThrows;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+
+import com.sortedbits.functionaljava.throwing.ThrowingFunction;
 
 public class Test1 {
 
