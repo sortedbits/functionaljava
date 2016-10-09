@@ -4,7 +4,7 @@ import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 
 public class Left<A, B> extends Either<A, B> {
-	
+
 	Left(A a) {
 		left = ofNullable(a);
 		right = empty();
@@ -19,5 +19,5 @@ public class Left<A, B> extends Either<A, B> {
 	public boolean isLeft() {
 		return true;
 	}
-	
+
 }
