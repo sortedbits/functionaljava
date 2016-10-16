@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava.functionaljava.tuples;
+package com.sortedbits.functionaljava.tuples;
 
 import java.util.Objects;
 

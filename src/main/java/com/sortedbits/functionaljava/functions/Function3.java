@@ -1,7 +1,7 @@
-package com.sortedbits.functionaljava.functionaljava.functions;
+package com.sortedbits.functionaljava.functions;
 
-import com.sortedbits.functionaljava.functionaljava.tuples.Tuple;
-import com.sortedbits.functionaljava.functionaljava.tuples.Tuple3;
+import com.sortedbits.functionaljava.tuples.Tuple;
+import com.sortedbits.functionaljava.tuples.Tuple3;
 
 @FunctionalInterface
 public interface Function3<T1, T2, T3, R> {

@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava.functionaljava.tuples;
+package com.sortedbits.functionaljava.tuples;
 
 public interface Tuple {
 

@@ -1,7 +1,7 @@
-package com.sortedbits.functionaljava.functionaljava.functions;
+package com.sortedbits.functionaljava.functions;
 
-import com.sortedbits.functionaljava.functionaljava.tuples.Tuple;
-import com.sortedbits.functionaljava.functionaljava.tuples.Tuple2;
+import com.sortedbits.functionaljava.tuples.Tuple;
+import com.sortedbits.functionaljava.tuples.Tuple2;
 
 import java.util.function.BiFunction;
 

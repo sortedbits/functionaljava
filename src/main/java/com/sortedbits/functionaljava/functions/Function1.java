@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava.functionaljava.functions;
+package com.sortedbits.functionaljava.functions;
 
 import java.util.function.Function;
 
