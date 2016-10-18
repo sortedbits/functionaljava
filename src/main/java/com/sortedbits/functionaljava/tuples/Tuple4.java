@@ -27,6 +27,18 @@ public class Tuple4<T1, T2, T3, T4> implements Tuple {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Tuple4)) {
+            return false;
+        }
+        final Tuple4<?, ?, ?, ?> that = (Tuple4<?, ?, ?, ?>) obj;
+        return Objects.equals(_1, that._1) && Objects.equals(_2, that._2) && Objects.equals(_3, that._3) && Objects.equals(_4, that._4);
+    }
+
+    @Override
     public String toString() {
         return String.format("(%s, %s, %s, %s)", _1, _2, _3, _4);
     }

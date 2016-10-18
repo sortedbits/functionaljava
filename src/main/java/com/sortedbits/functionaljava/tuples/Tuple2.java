@@ -23,6 +23,18 @@ public class Tuple2<T1, T2> implements Tuple {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Tuple2)) {
+            return false;
+        }
+        final Tuple2<?, ?> that = (Tuple2<?, ?>) obj;
+        return Objects.equals(_1, that._1) && Objects.equals(_2, that._2);
+    }
+
+    @Override
     public String toString() {
         return String.format("(%s, %s)", _1, _2);
     }
