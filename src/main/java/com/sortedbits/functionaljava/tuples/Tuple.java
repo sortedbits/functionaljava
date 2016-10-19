@@ -2,6 +2,10 @@ package com.sortedbits.functionaljava.tuples;
 
 public interface Tuple {
 
+    static <T1> Tuple1<T1> of(T1 _1) {
+        return new Tuple1(_1);
+    }
+
     static <T1, T2> Tuple2<T1, T2> of(T1 _1, T2 _2) {
         return new Tuple2(_1, _2);
     }
