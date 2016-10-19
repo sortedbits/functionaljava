@@ -4,9 +4,13 @@ import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple4;
 
 @FunctionalInterface
-public interface Function4<T1, T2, T3, T4, R> {
+public interface Function4<T1, T2, T3, T4, R> extends Function {
 
     R apply(T1 x1, T2 x2, T3 x3, T4 x4);
+
+    default int arity() {
+        return 4;
+    }
 
     default Function1<Tuple4<T1, T2, T3, T4>, R> tupled() {
         return t -> apply(t._1, t._2, t._3, t._4);

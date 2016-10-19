@@ -3,12 +3,15 @@ package com.sortedbits.functionaljava.functions;
 import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple1;
 
-import java.util.function.Function;
 
 @FunctionalInterface
-public interface Function1<T1, R> extends Function<T1, R> {
+public interface Function1<T1, R> extends java.util.function.Function<T1, R>,  Function {
 
     R apply(T1 x1);
+
+    default int arity() {
+        return 1;
+    }
 
     default Function1<Tuple1<T1>, R> tupled() {
         return t -> this.apply(t._1);

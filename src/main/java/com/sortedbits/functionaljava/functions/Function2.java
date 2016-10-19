@@ -6,10 +6,14 @@ import com.sortedbits.functionaljava.tuples.Tuple2;
 import java.util.function.BiFunction;
 
 @FunctionalInterface
-public interface Function2<T1, T2, R> extends BiFunction<T1, T2, R> {
+public interface Function2<T1, T2, R> extends BiFunction<T1, T2, R>, Function {
 
     @Override
     R apply(T1 x1, T2 x2);
+
+    default int arity() {
+        return 2;
+    }
 
     default Function1<Tuple2<T1, T2>, R> tupled() {
         return t -> this.apply(t._1, t._2);

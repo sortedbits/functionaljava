@@ -5,7 +5,7 @@ import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple1;
 import org.junit.Test;
 
-import static com.sortedbits.functionaljava.functions.Functions.function1;
+import static com.sortedbits.functionaljava.functions.Function.function1;
 import static org.junit.Assert.assertTrue;
 
 public class Function1Test {
