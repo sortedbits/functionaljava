@@ -2,7 +2,7 @@ package com.sortedbits.functionaljava;
 
 import java.util.function.Supplier;
 
-public class Lazy<T> {
+public class Lazy<T> implements Supplier<T> {
 
     private Supplier<T> supplier;
     private T value;
