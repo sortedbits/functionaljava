@@ -1,11 +1,11 @@
 package com.sortedbits.functionaljava.functions;
 
+import com.sortedbits.functionaljava.commons.Arity;
 import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple1;
 
-
 @FunctionalInterface
-public interface Function1<T1, R> extends java.util.function.Function<T1, R>,  Function {
+public interface Function1<T1, R> extends java.util.function.Function<T1, R>, Function {
 
     R apply(T1 x1);
 

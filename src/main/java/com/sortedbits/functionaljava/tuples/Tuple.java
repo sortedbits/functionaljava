@@ -1,6 +1,8 @@
 package com.sortedbits.functionaljava.tuples;
 
-public interface Tuple {
+import com.sortedbits.functionaljava.commons.Arity;
+
+public interface Tuple extends Arity {
 
     static <T1> Tuple1<T1> of(T1 _1) {
         return new Tuple1(_1);
@@ -17,7 +19,5 @@ public interface Tuple {
     static <T1, T2, T3, T4> Tuple4<T1, T2, T3, T4> of(T1 _1, T2 _2, T3 _3, T4 _4) {
         return new Tuple4(_1, _2, _3, _4);
     }
-
-    int arity();
 
 }

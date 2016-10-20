@@ -1,5 +1,6 @@
 package com.sortedbits.functionaljava.functions;
 
+import com.sortedbits.functionaljava.commons.Arity;
 import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple3;
 
