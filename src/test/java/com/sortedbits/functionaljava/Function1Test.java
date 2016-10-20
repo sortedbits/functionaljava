@@ -6,19 +6,29 @@ import com.sortedbits.functionaljava.tuples.Tuple1;
 import org.junit.Test;
 
 import static com.sortedbits.functionaljava.functions.Function.function1;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Function1Test {
 
     @Test
-    public void testCreate() {
-        Function1<Integer, Integer> f1 = function1((Integer x) -> x + 1);
-        assertTrue(f1.apply(0) == 1);
+    public void testCreateFromJavaFunction() {
+        Function1<Integer, Integer> f = function1(x -> x + 1);
+        assertThat(f.apply(0), equalTo(1));
     }
 
     @Test
-    public void testTupled() {
-        Function1<Tuple1<Integer>, Integer> f1 = function1((Integer x) -> x + 1).tupled();
-        assertTrue(f1.apply(Tuple.of(0)) == 1);
+    public void testConvertToTupled() {
+        Function1<Integer, Integer> f = function1(x -> x + 1);
+        Function1<Tuple1<Integer>, Integer> ft = f.tupled();
+        assertThat(ft.apply(Tuple.of(0)), equalTo(1));
     }
+
+    @Test
+    public void testCreateFromTupled() {
+        Function1<Tuple1<Integer>, Integer> ft = function1(x -> x._1 + 1);
+        Function1<Integer, Integer> f = Function1.fromTupled(ft);
+        assertThat(f.apply(0), equalTo(1));
+    }
+
 }

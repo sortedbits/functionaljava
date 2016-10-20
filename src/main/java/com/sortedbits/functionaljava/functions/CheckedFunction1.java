@@ -7,11 +7,11 @@ import java.util.function.Consumer;
 @FunctionalInterface
 public interface CheckedFunction1<T1, R> extends Function {
 
+    R apply(T1 x1) throws Exception;
+
     default int arity() {
         return 1;
     }
-
-    R apply(T1 x1) throws Exception;
 
     default Function1<T1, R> unchecked() {
         return unchecked(error -> { throw new UncheckedException(error); });
