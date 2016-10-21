@@ -12,23 +12,25 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class Function1Test {
 
     @Test
-    public void testCreateFromJavaFunction() {
+    public void testFunction1() {
         Function1<Integer, Integer> f = function1(x -> x + 1);
         assertThat(f.apply(0), equalTo(1));
     }
 
     @Test
-    public void testConvertToTupled() {
+    public void testUntuple() {
+        Function1<Tuple1<Integer>, Integer> ft = function1(x -> x._1 + 1);
+        Function1<Integer, Integer> f = Function1.untuple(ft);
+        assertThat(f.apply(0), equalTo(1));
+    }
+
+    @Test
+    public void testTuple() {
         Function1<Integer, Integer> f = function1(x -> x + 1);
-        Function1<Tuple1<Integer>, Integer> ft = f.tupled();
+        Function1<Tuple1<Integer>, Integer> ft = f.tuple();
         assertThat(ft.apply(Tuple.of(0)), equalTo(1));
     }
 
-    @Test
-    public void testCreateFromTupled() {
-        Function1<Tuple1<Integer>, Integer> ft = function1(x -> x._1 + 1);
-        Function1<Integer, Integer> f = Function1.fromTupled(ft);
-        assertThat(f.apply(0), equalTo(1));
-    }
+
 
 }
