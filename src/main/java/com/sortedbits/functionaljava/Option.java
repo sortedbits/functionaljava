@@ -1,4 +1,4 @@
 package com.sortedbits.functionaljava;
 
-public class Function2Test {
+public class Option {
 }

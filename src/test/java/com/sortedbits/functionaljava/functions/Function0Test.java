@@ -1,7 +1,8 @@
-package com.sortedbits.functionaljava;
+package com.sortedbits.functionaljava.functions;
 
 import com.sortedbits.functionaljava.functions.Function0;
 
+import com.sortedbits.functionaljava.functions.Function1;
 import com.sortedbits.functionaljava.suppliers.Supplier1;
 import org.junit.Test;
 
@@ -16,8 +17,8 @@ public class Function0Test {
     @Test
     public void testFunction() {
         Supplier1<Integer> s = () ->  1;
-        Function<Void, Integer> f = s.function();
-        assertThat(f.apply(null), equalTo(1));
+        Function0<Integer> f = s.function0();
+        assertThat(f.apply(), equalTo(1));
     }
 
     @Test

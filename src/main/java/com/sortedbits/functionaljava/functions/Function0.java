@@ -8,5 +8,4 @@ public interface Function0<R> extends Function {
     default int arity() {
         return 0;
     }
-
 }

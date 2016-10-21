@@ -1,13 +1,13 @@
 package com.sortedbits.functionaljava.consumers;
 
-public interface CheckedConsumer1<T> extends Consumer1<T> {
+public interface CheckedConsumer0 extends Consumer0 {
 
-    void acceptThrows(T x) throws Exception;
+    void acceptThrows() throws Exception;
 
     @Override
-    default void accept(T x) {
+    default void accept() {
         try {
-            acceptThrows(x);
+            acceptThrows();
         } catch (Exception error) {
             throw new ConsumerException(error);
         }

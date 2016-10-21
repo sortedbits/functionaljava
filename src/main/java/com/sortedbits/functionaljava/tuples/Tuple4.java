@@ -23,7 +23,7 @@ public class Tuple4<T1, T2, T3, T4> implements Tuple {
 
     @Override
     public int hashCode() {
-        return Objects.hash(_1, _2, 3, 4);
+        return Objects.hash(_1, _2, 3, _4);
     }
 
     @Override
@@ -42,5 +42,4 @@ public class Tuple4<T1, T2, T3, T4> implements Tuple {
     public String toString() {
         return String.format("(%s, %s, %s, %s)", _1, _2, _3, _4);
     }
-
 }

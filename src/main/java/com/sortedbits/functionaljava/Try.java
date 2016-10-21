@@ -68,5 +68,4 @@ public interface Try<T> {
             return new Failure<>(error);
         }
     }
-
 }

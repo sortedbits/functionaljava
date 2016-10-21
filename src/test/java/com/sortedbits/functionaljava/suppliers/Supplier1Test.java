@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava;
+package com.sortedbits.functionaljava.suppliers;
 
 import org.junit.Test;
 

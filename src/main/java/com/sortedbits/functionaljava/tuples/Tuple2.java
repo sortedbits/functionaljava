@@ -38,5 +38,4 @@ public class Tuple2<T1, T2> implements Tuple {
     public String toString() {
         return String.format("(%s, %s)", _1, _2);
     }
-
 }

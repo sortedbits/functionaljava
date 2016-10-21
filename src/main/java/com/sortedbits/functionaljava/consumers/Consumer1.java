@@ -14,6 +14,7 @@ public interface Consumer1<T> extends Consumer, java.util.function.Consumer<T> {
         return (Consumer1<T>)NOP;
     }
 
+    @Override
     void accept(T x);
 
     default int arity() {

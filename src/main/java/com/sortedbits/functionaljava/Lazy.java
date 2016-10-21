@@ -18,5 +18,4 @@ public class Lazy<T> implements Supplier<T> {
     public static <T> Lazy<T> of(Supplier<T> supplier) {
         return new Lazy<>(supplier);
     }
-
 }

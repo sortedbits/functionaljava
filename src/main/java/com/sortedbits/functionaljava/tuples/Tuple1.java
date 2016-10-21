@@ -36,5 +36,4 @@ public class Tuple1<T1> implements Tuple {
     public String toString() {
         return String.format("(%s)", _1);
     }
-
 }

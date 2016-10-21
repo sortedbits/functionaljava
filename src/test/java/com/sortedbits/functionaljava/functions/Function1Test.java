@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava;
+package com.sortedbits.functionaljava.functions;
 
 import com.sortedbits.functionaljava.functions.Function1;
 import com.sortedbits.functionaljava.tuples.Tuple;
@@ -31,6 +31,11 @@ public class Function1Test {
         assertThat(ft.apply(Tuple.of(0)), equalTo(1));
     }
 
-
-
+    @Test
+    public void testCompose() {
+        Function1<Integer, Integer> addOne = function1(x -> x + 1);
+        Function1<Integer, Integer> multTwo = function1(x -> x * 2);
+        Function1<Integer, Integer> f = addOne.andThen(multTwo);
+        assertThat(f.apply(0), equalTo(2));
+    }
 }

@@ -2,19 +2,22 @@ package com.sortedbits.functionaljava.suppliers;
 
 import com.sortedbits.functionaljava.consumers.Consumer1;
 import com.sortedbits.functionaljava.functions.Function0;
+import com.sortedbits.functionaljava.functions.Function1;
 
 @FunctionalInterface
 public interface Supplier1<R> extends Supplier, java.util.function.Supplier<R> {
+
+    @Override R get();
 
     default int arity() {
         return 1;
     }
 
-    default <T> java.util.function.Function<T, R> function() {
-        return function(Consumer1.nop());
+    default <T> Function1<T, R> function1() {
+        return function1(Consumer1.nop());
     }
 
-    default <T> java.util.function.Function<T, R> function(Consumer1<T> c) {
+    default <T> Function1<T, R> function1(java.util.function.Consumer<T> c) {
         return (T x) -> {
             c.accept(x);
             return get();
@@ -24,5 +27,4 @@ public interface Supplier1<R> extends Supplier, java.util.function.Supplier<R> {
     default Function0<R> function0() {
         return this::get;
     }
-
 }

@@ -1,23 +1,15 @@
 package com.sortedbits.functionaljava.suppliers;
 
-import com.sortedbits.functionaljava.commons.UncheckedException;
-
 @FunctionalInterface
-public interface CheckedSupplier1<T> extends Supplier {
+public interface CheckedSupplier1<T> extends Supplier1 {
 
-    default int arity() {
-        return 1;
-    }
+    T getThrows() throws Exception;
 
-    T get() throws Exception;
-
-    default Supplier1<T> unchecked() {
-        return () -> {
-            try {
-                return get();
-            } catch (Exception e) {
-                throw new UncheckedException(e);
-            }
-        };
+    default T get() {
+        try {
+            return getThrows();
+        } catch (Exception error) {
+            throw new SupplierException(error);
+        }
     }
 }

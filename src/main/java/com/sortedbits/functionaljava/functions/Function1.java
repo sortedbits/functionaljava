@@ -16,8 +16,11 @@ public interface Function1<T, R> extends java.util.function.Function<T, R>, Func
         return t -> this.apply(t._1);
     }
 
-    static <T, R> Function1<T, R> untuple(Function1<Tuple1<T>, R> f) {
+    static <T, R> Function1<T, R> untuple(java.util.function.Function<Tuple1<T>, R> f) {
         return x -> f.apply(Tuple.of(x));
     }
 
+    default <V> Function1<T, V> andThen(java.util.function.Function<? super R, ? extends V> after){
+        return (T t) -> after.apply(apply(t));
+    }
 }

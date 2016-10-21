@@ -28,11 +28,11 @@ public interface Function3<T1, T2, T3, R> extends Function {
         return x3 -> apply(x1, x2, x3);
     }
 
-    static <T1, T2, T3, R> Function3<T1, T2, T3, R> untuple(Function1<Tuple3<T1, T2, T3>, R> f) {
+    static <T1, T2, T3, R> Function3<T1, T2, T3, R> untuple(java.util.function.Function<Tuple3<T1, T2, T3>, R> f) {
         return (x1, x2, x3) -> f.apply(Tuple.of(x1, x2, x3));
     }
 
-    static <T1, T2, T3, R> Function3<T1, T2, T3, R> uncurry(Function1<T1, Function1<T2, Function1<T3, R>>> f) {
+    static <T1, T2, T3, R> Function3<T1, T2, T3, R> uncurry(java.util.function.Function<T1, java.util.function.Function<T2, java.util.function.Function<T3, R>>> f) {
         return (x1, x2, x3) -> f.apply(x1).apply(x2).apply(x3);
     }
 }
