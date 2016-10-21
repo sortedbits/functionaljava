@@ -3,14 +3,14 @@ package com.sortedbits.functionaljava.consumers;
 import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple1;
 
-import java.util.List;
-
 @FunctionalInterface
 public interface Consumer1<T> extends Consumer, java.util.function.Consumer<T> {
 
-    Consumer1 NOP = x -> {};
+    @SuppressWarnings("rawtypes")
+	Consumer1 NOP = x -> {};
 
-    static <T> Consumer1<T> nop() {
+    @SuppressWarnings("unchecked")
+	static <T> Consumer1<T> nop() {
         return (Consumer1<T>)NOP;
     }
 
