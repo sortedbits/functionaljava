@@ -5,6 +5,6 @@ import org.junit.Test;
 public class Supplier1Test {
 
     @Test
-    public void create() {
+    public void test() {
     }
 }
