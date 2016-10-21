@@ -16,5 +16,4 @@ public interface Supplier extends Arity {
     static <T> Supplier1<T> supplier1(java.util.function.Supplier<T> s) {
         return s::get;
     }
-
 }

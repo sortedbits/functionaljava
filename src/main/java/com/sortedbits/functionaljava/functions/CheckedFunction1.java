@@ -20,5 +20,4 @@ public interface CheckedFunction1<T, R> extends Function {
             }
         };
     }
-
 }
