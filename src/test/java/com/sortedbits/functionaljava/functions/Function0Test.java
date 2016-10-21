@@ -1,12 +1,13 @@
 package com.sortedbits.functionaljava.functions;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.junit.Test;
+
 import com.sortedbits.functionaljava.suppliers.CheckedSupplier1;
 import com.sortedbits.functionaljava.suppliers.Supplier1;
 import com.sortedbits.functionaljava.suppliers.SupplierException;
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class Function0Test {
 
@@ -33,7 +34,7 @@ public class Function0Test {
     @Test(expected=SupplierException.class)
     public void testCheckedSupplier1ToFunction0Error() {
         CheckedSupplier1<?> s = () -> { throw new Exception("supplier exception"); };
-        Function0<Integer> f = s.function0();
+        Function0<?> f = s.function0();
         f.apply();
     }
 }
