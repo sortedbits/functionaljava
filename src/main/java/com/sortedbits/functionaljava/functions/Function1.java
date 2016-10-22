@@ -23,4 +23,8 @@ public interface Function1<T, R> extends java.util.function.Function<T, R>, Func
     default <V> Function1<T, V> andThen(java.util.function.Function<? super R, ? extends V> after){
         return (T t) -> after.apply(apply(t));
     }
+    
+    default <V> Function1<V, R> compose(java.util.function.Function<? super V, ? extends T> before) {
+        return (V v) -> apply(before.apply(v));
+    }
 }

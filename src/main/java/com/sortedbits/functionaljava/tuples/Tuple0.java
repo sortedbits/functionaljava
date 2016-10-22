@@ -1,10 +1,10 @@
 package com.sortedbits.functionaljava.tuples;
 
-public class Unit implements Tuple {
+public class Tuple0 implements Tuple {
 
-	public static final Unit UNIT = new Unit();
+	public static final Tuple0 INSTANCE = new Tuple0();
 	
-    private Unit() {
+    private Tuple0() {
     }
 
     @Override

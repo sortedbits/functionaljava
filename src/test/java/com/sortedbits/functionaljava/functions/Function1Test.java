@@ -14,12 +14,14 @@ public class Function1Test {
     @Test
     public void testFunction1() {
         Function1<Integer, Integer> f = function1(x -> x + 1);
+        assertThat(f.arity(), equalTo(1));
         assertThat(f.apply(0), equalTo(1));
     }
 
     @Test
     public void testUntuple() {
         Function1<Tuple1<Integer>, Integer> ft = function1(x -> x._1 + 1);
+        assertThat(ft.apply(Tuple.of(0)), equalTo(1));
         Function1<Integer, Integer> f = Function1.untuple(ft);
         assertThat(f.apply(0), equalTo(1));
     }
@@ -27,12 +29,13 @@ public class Function1Test {
     @Test
     public void testTuple() {
         Function1<Integer, Integer> f = function1(x -> x + 1);
+        assertThat(f.apply(0), equalTo(1));
         Function1<Tuple1<Integer>, Integer> ft = f.tuple();
         assertThat(ft.apply(Tuple.of(0)), equalTo(1));
     }
 
     @Test
-    public void testCompose() {
+    public void testAndThen() {
         Function1<Integer, Integer> addOne = function1(x -> x + 1);
         Function1<Integer, Integer> multTwo = function1(x -> x * 2);
         Function1<Integer, Integer> f = addOne.andThen(multTwo);

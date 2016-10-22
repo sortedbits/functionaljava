@@ -1,6 +1,6 @@
 package com.sortedbits.functionaljava.functions;
 
-import com.sortedbits.functionaljava.tuples.Unit;
+import com.sortedbits.functionaljava.tuples.Tuple0;
 
 @FunctionalInterface
 public interface Function0<R> extends Function {
@@ -11,11 +11,11 @@ public interface Function0<R> extends Function {
         return 0;
     }
     
-    default Function1<Unit, R> tuple() {
+    default Function1<Tuple0, R> tuple() {
         return x -> this.apply();
     }
 
-    static <R> Function0<R> untuple(java.util.function.Function<Unit, R> f) {
-        return () -> f.apply(Unit.UNIT);
+    static <R> Function0<R> untuple(java.util.function.Function<Tuple0, R> f) {
+        return () -> f.apply(Tuple0.INSTANCE);
     }
 }
