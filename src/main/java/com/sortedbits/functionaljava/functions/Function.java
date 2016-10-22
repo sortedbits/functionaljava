@@ -5,9 +5,9 @@ import com.sortedbits.functionaljava.tuples.Tuple0;
 
 public interface Function extends Arity {
 
-    static <R> Function0<R> function0(java.util.function.Supplier<R> s) {
-        return s::get;
-    }
+	static <R> Function0<R> function0(java.util.function.Supplier<R> s) {
+		return s::get;
+	}
 
 	static <T, R> Function1<T, R> function1(java.util.function.Function<T, R> f) {
 		return f::apply;
