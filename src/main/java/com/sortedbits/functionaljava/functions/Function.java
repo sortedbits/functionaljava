@@ -1,5 +1,7 @@
 package com.sortedbits.functionaljava.functions;
 
+import static com.sortedbits.functionaljava.tuples.Tuple.UNIT;
+
 import com.sortedbits.functionaljava.Arity;
 import com.sortedbits.functionaljava.tuples.Tuple0;
 
@@ -16,7 +18,7 @@ public interface Function extends Arity {
 	static <T> Function1<T, Tuple0> function1(java.util.function.Consumer<T> c) {
 		return x -> {
 			c.accept(x);
-			return Tuple0.INSTANCE;
+			return UNIT;
 		};
 	}
 }
