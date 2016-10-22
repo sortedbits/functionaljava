@@ -6,14 +6,16 @@ public class Lazy<T> implements Supplier<T> {
 
     private Supplier<T> supplier;
     private T value;
+    private boolean computed;
 
     private Lazy(Supplier<T> supplier) {
         this.supplier = supplier;
     }
 
     public synchronized T get() {
-        if (value == null) {
+        if (!computed) {
         	value = supplier.get();
+        	computed = true;
         }
         return value;
     }
