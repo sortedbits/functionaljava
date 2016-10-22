@@ -2,10 +2,12 @@ package com.sortedbits.functionaljava;
 
 import java.util.function.Supplier;
 
-public interface Try<T> {
+import com.sortedbits.functionaljava.functions.Function0;
 
-    final class Success<T> implements Try<T> {
-        final T value;
+public interface Try<R> {
+
+    final class Success<R> implements Try<R> {
+        final R value;
 
         @Override
         public boolean isSuccess() {
@@ -17,12 +19,12 @@ public interface Try<T> {
             return false;
         }
 
-        private Success(T value) {
+        private Success(R value) {
             this.value = value;
         }
     }
 
-    final class Failure<T> implements Try<T> {
+    final class Failure<R> implements Try<R> {
         final Throwable error;
 
         @Override
@@ -44,17 +46,25 @@ public interface Try<T> {
 
     boolean isFailure();
 
-    static <T> Success<T> success(T value) {
+    static <R> Success<R> success(R value) {
         return new Success<>(value);
     }
 
-    static <T> Failure<T> failure(Throwable error) {
+    static <R> Failure<R> failure(Throwable error) {
         return new Failure<>(error);
     }
 
-    static <T> Try<T> of(Supplier<T> supplier) {
+    static <R> Try<R> of(Supplier<R> supplier) {
         try {
             return new Success<>(supplier.get());
+        } catch (Throwable error) {
+            return new Failure<>(error);
+        }
+    }
+    
+    static <R> Try<R> of(Function0<R> f) {
+        try {
+            return new Success<>(f.apply());
         } catch (Throwable error) {
             return new Failure<>(error);
         }
