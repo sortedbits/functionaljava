@@ -12,7 +12,10 @@ public class Lazy<T> implements Supplier<T> {
     }
 
     public synchronized T get() {
-        return (value != null) ? value : supplier.get();
+        if (value == null) {
+        	value = supplier.get();
+        }
+        return value;
     }
 
     public static <T> Lazy<T> of(Supplier<T> supplier) {
