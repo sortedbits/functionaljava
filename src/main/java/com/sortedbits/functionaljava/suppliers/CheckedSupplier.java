@@ -1,7 +1,7 @@
 package com.sortedbits.functionaljava.suppliers;
 
 @FunctionalInterface
-public interface CheckedSupplier1<T> extends Supplier1<T> {
+public interface CheckedSupplier<T> extends Supplier<T> {
 
     T getThrows() throws Exception;
 

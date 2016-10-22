@@ -1,3 +1,3 @@
 # functionaljava
-Attempt to add some missing pieces to java 8
+Add some missing pieces to java 8
 

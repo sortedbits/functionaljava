@@ -5,8 +5,8 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        Supplier1Test.class,
-        CheckedSupplier1Test.class
+        SupplierTest.class,
+        CheckedSupplierTest.class
 })
 public class SuppliersTestSuite {
 

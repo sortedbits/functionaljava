@@ -1,8 +1,6 @@
 package com.sortedbits.functionaljava.functions;
 
-import com.sortedbits.functionaljava.UncheckedException;
-
-public class FunctionException extends UncheckedException {
+public class FunctionException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
