@@ -5,8 +5,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import com.sortedbits.functionaljava.suppliers.CheckedSupplier;
-import com.sortedbits.functionaljava.suppliers.Supplier;
+import com.sortedbits.functionaljava.suppliers.CheckedSupplier1;
+import com.sortedbits.functionaljava.suppliers.Supplier1;
 import com.sortedbits.functionaljava.suppliers.SupplierException;
 
 public class Function0Test {
@@ -19,21 +19,21 @@ public class Function0Test {
 
     @Test
     public void testSupplier1ToFunction0() {
-        Supplier<Integer> s = () ->  1;
+        Supplier1<Integer> s = () ->  1;
         Function0<Integer> f = s.function0();
         assertThat(f.apply(), equalTo(1));
     }
 
     @Test
     public void testCheckedSupplier1ToFunction0() {
-        CheckedSupplier<Integer> s = () ->  1;
+        CheckedSupplier1<Integer> s = () ->  1;
         Function0<Integer> f = s.function0();
         assertThat(f.apply(), equalTo(1));
     }
 
     @Test(expected=SupplierException.class)
     public void testCheckedSupplier1ToFunction0Error() {
-        CheckedSupplier<?> s = () -> { throw new Exception("supplier exception"); };
+        CheckedSupplier1<?> s = () -> { throw new Exception("supplier exception"); };
         Function0<?> f = s.function0();
         f.apply();
     }
