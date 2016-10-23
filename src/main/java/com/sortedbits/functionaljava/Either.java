@@ -28,27 +28,27 @@ public abstract class Either<A, B> {
 	}
 
 	public <C> Either<A, C> map(Function<? super B, ? extends C> f) {
-		if (!right.isPresent())
+		if (!right.isPresent()) {
 			return left(getLeft());
-		else {
+		} else {
 			return right(f.apply(getRight()));
 		}
 	}
 
 	public <C> Either<A, C> flatMap(Function<? super B, Either<A, C>> f) {
-		if (!right.isPresent())
+		if (!right.isPresent()) {
 			return left(getLeft());
-		else {
+		} else {
 			return f.apply(getRight());
 		}
 	}
 
 	public static <A, B> Left<A, B> left(A a) {
-		return new Left<A, B>(a);
+		return new Left<>(a);
 	}
 
 	public static <A, B> Right<A, B> right(B b) {
-		return new Right<A, B>(b);
+		return new Right<>(b);
 	}
 
 	public static class Left<A, B> extends Either<A, B> {
