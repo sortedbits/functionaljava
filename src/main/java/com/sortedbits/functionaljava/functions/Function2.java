@@ -9,7 +9,8 @@ import java.util.function.BiFunction;
 @FunctionalInterface
 public interface Function2<T1, T2, R> extends BiFunction<T1, T2, R>, Function {
 
-    @Override R apply(T1 x1, T2 x2);
+    @Override
+    R apply(T1 x1, T2 x2);
 
     default int arity() {
         return 2;

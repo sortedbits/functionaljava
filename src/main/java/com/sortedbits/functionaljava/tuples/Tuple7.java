@@ -41,7 +41,7 @@ public class Tuple7<T1, T2, T3, T4, T5, T6, T7> implements Tuple {
             return false;
         }
         final Tuple7<?, ?, ?, ?, ?, ?, ?> that = (Tuple7<?, ?, ?, ?, ?, ?, ?>) obj;
-        return Objects.equals(_1, that._1) && Objects.equals(_2, that._2) && Objects.equals(_3, that._3) && Objects.equals(_4, that._4) && Objects.equals(_5, that._5) && Objects.equals(_6, that._6)&& Objects.equals(_7, that._7);
+        return Objects.equals(_1, that._1) && Objects.equals(_2, that._2) && Objects.equals(_3, that._3) && Objects.equals(_4, that._4) && Objects.equals(_5, that._5) && Objects.equals(_6, that._6) && Objects.equals(_7, that._7);
     }
 
     @Override

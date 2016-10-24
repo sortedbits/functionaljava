@@ -2,8 +2,8 @@ package com.sortedbits.functionaljava.tuples;
 
 public class Tuple0 implements Tuple {
 
-	public static final Tuple0 INSTANCE = new Tuple0();
-	
+    public static final Tuple0 INSTANCE = new Tuple0();
+
     private Tuple0() {
     }
 

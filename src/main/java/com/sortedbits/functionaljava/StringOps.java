@@ -8,11 +8,11 @@ import java.util.stream.Stream;
 public class StringOps {
 
     static <T> String mkString(Collection<T> collection, String sep) {
-        return mkString(collection, "", sep,  "");
+        return mkString(collection, "", sep, "");
     }
 
     static <T> String mkString(Collection<T> collection, String start, String sep, String end) {
-        return mkString(collection.stream(), start, sep,  end);
+        return mkString(collection.stream(), start, sep, end);
     }
 
     static <T> String mkString(Stream<T> stream, String sep) {

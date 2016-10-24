@@ -14,8 +14,8 @@ public class Lazy<T> implements Supplier<T> {
 
     public synchronized T get() {
         if (!computed) {
-        	value = supplier.get();
-        	computed = true;
+            value = supplier.get();
+            computed = true;
         }
         return value;
     }

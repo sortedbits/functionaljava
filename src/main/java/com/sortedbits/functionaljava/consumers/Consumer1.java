@@ -7,11 +7,12 @@ import com.sortedbits.functionaljava.tuples.Tuple1;
 public interface Consumer1<T> extends Consumer, java.util.function.Consumer<T> {
 
     @SuppressWarnings("rawtypes")
-	Consumer1 NOP = x -> {};
+    Consumer1 NOP = x -> {
+    };
 
     @SuppressWarnings("unchecked")
-	static <T> Consumer1<T> nop() {
-        return (Consumer1<T>)NOP;
+    static <T> Consumer1<T> nop() {
+        return (Consumer1<T>) NOP;
     }
 
     @Override
