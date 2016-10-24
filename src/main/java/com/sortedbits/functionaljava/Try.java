@@ -2,8 +2,6 @@ package com.sortedbits.functionaljava;
 
 import java.util.function.Supplier;
 
-import com.sortedbits.functionaljava.functions.Function0;
-
 public interface Try<R> {
 
     final class Success<R> implements Try<R> {
@@ -57,14 +55,6 @@ public interface Try<R> {
     static <R> Try<R> of(Supplier<R> supplier) {
         try {
             return new Success<>(supplier.get());
-        } catch (Throwable error) {
-            return new Failure<>(error);
-        }
-    }
-    
-    static <R> Try<R> of(Function0<R> f) {
-        try {
-            return new Success<>(f.apply());
         } catch (Throwable error) {
             return new Failure<>(error);
         }
