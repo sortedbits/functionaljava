@@ -1,2 +1,3 @@
 # functionaljava
-Some functional snippets in java 8+
+Add some missing pieces to java 8
+
