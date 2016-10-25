@@ -9,10 +9,10 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.Function;
 
-public abstract class Either<A, B> {
+public abstract class Either<L, R> {
 
-    protected Optional<A> left;
-    protected Optional<B> right;
+    protected Optional<L> left;
+    protected Optional<R> right;
 
     protected Either() {
     }
@@ -21,15 +21,15 @@ public abstract class Either<A, B> {
 
     public abstract boolean isLeft();
 
-    public A getLeft() {
+    public L getLeft() {
         return left.orElseThrow(() -> new NoSuchElementException("Right.getLeft"));
     }
 
-    public B getRight() {
+    public R getRight() {
         return right.orElseThrow(() -> new NoSuchElementException("Left.getRight"));
     }
 
-    public <C> Either<A, C> map(Function<? super B, ? extends C> f) {
+    public <V> Either<L, V> map(Function<? super R, ? extends V> f) {
         if (!right.isPresent()) {
             return left(getLeft());
         } else {
@@ -37,7 +37,7 @@ public abstract class Either<A, B> {
         }
     }
 
-    public <C> Either<A, C> flatMap(Function<? super B, Either<A, C>> f) {
+    public <V> Either<L, V> flatMap(Function<? super R, Either<L, V>> f) {
         if (!right.isPresent()) {
             return left(getLeft());
         } else {
@@ -45,7 +45,7 @@ public abstract class Either<A, B> {
         }
     }
 
-    public static <B> Either<Throwable, B> either(Try<B> t) {
+    public static <R> Either<Throwable, R> either(Try<R> t) {
         if (t.isSuccess()) {
             return right(getValue(t));
         } else {
@@ -53,18 +53,18 @@ public abstract class Either<A, B> {
         }
     }
 
-    public static <A, B> Left<A, B> left(A a) {
-        return new Left<>(a);
+    public static <L, R> Left<L, R> left(L x) {
+        return new Left<>(x);
     }
 
-    public static <A, B> Right<A, B> right(B b) {
-        return new Right<>(b);
+    public static <L, R> Right<L, R> right(R x) {
+        return new Right<>(x);
     }
 
-    public static class Left<A, B> extends Either<A, B> {
+    public static class Left<L, R> extends Either<L, R> {
 
-        Left(A a) {
-            left = ofNullable(a);
+        Left(L x) {
+            left = ofNullable(x);
             right = empty();
         }
 
@@ -79,11 +79,11 @@ public abstract class Either<A, B> {
         }
     }
 
-    public static class Right<A, B> extends Either<A, B> {
+    public static class Right<L, R> extends Either<L, R> {
 
-        Right(B b) {
+        Right(R x) {
             left = empty();
-            right = ofNullable(b);
+            right = ofNullable(x);
         }
 
         @Override
