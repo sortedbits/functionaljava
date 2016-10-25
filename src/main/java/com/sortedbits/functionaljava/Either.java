@@ -1,5 +1,7 @@
 package com.sortedbits.functionaljava;
 
+import static com.sortedbits.functionaljava.Try.getError;
+import static com.sortedbits.functionaljava.Try.getValue;
 import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 
@@ -40,6 +42,14 @@ public abstract class Either<A, B> {
             return left(getLeft());
         } else {
             return f.apply(getRight());
+        }
+    }
+
+    public static <B> Either<Throwable, B> either(Try<B> t) {
+        if (t.isSuccess()) {
+            return right(getValue(t));
+        } else {
+            return left(getError(t));
         }
     }
 
