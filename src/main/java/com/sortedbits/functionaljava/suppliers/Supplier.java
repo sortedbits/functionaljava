@@ -1,5 +1,7 @@
 package com.sortedbits.functionaljava.suppliers;
 
+import java.util.function.Function;
+
 @FunctionalInterface
 public interface Supplier<R> extends java.util.function.Supplier<R> {
 
@@ -9,4 +11,7 @@ public interface Supplier<R> extends java.util.function.Supplier<R> {
         return s::get;
     }
 
+    static <T, R> Supplier<R> supplier(Function<T, R> f, T x) {
+        return () -> f.apply(x);
+    }
 }
