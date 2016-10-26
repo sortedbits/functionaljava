@@ -2,6 +2,8 @@ package com.sortedbits.functionaljava.tuples;
 
 public class Tuple0 implements Tuple {
 
+    private static final long serialVersionUID = 1L;
+
     public static final Tuple0 INSTANCE = new Tuple0();
 
     private Tuple0() {
