@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static java.lang.String.format;
 import static java.util.stream.Collectors.joining;
 
 public class StringOps {
@@ -27,7 +26,7 @@ public class StringOps {
             String start,
             String sep,
             String end) {
-        return format("%s%s%s", start, stream.map(StringOps::safeToString).collect(joining(sep)), end);
+        return String.format("%s%s%s", start, stream.map(StringOps::safeToString).collect(joining(sep)), end);
     }
 
     static String safeToString(Object obj) {
