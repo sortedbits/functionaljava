@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static java.lang.String.format;
+import static java.util.stream.Collectors.joining;
+
 public class StringOps {
 
     static <T> String mkString(Collection<T> collection, String sep) {
@@ -24,13 +27,10 @@ public class StringOps {
             String start,
             String sep,
             String end) {
-        StringBuilder sb = new StringBuilder(start);
-        Optional<String> os = stream.map(StringOps::safeToString).reduce((x, y) -> x + sep + y);
-        os.ifPresent(sb::append);
-        return sb.append(end).toString();
+        return format("%s%s%s", start, stream.map(StringOps::safeToString).collect(joining(sep)), end);
     }
 
     static String safeToString(Object obj) {
-        return (obj != null) ? obj.toString() : "null";
+        return Optional.ofNullable(obj).map(Object::toString).orElse("null");
     }
 }
