@@ -16,6 +16,8 @@ public interface Tuple extends Arity, Serializable {
         return new Tuple2<>(_1, _2);
     }
 
+    static <T1, T2> Tuple2<T1, T2> pair(T1 _1, T2 _2) { return of(_1, _2); }
+
     static <T1, T2, T3> Tuple3<T1, T2, T3> of(T1 _1, T2 _2, T3 _3) {
         return new Tuple3<>(_1, _2, _3);
     }
