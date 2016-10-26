@@ -13,10 +13,10 @@ public interface CollectionOps {
         return Arrays.asList(xs);
     }
 
-    static <A, B> Map<A, B> map(Tuple2<A, B>...xs) {
-        Map<A, B> m = new HashMap<>();
-        Arrays.stream(xs).forEach(e -> m.put(e.getKey(), e.getValue()));
-        return m;
-    }
+//    static <A, B> Map<A, B> map(Tuple2<A, B>...xs) {
+//        Map<A, B> m = new HashMap<>();
+//        Arrays.stream(xs).forEach(e -> m.put(e.getKey(), e.getValue()));
+//        return m;
+//    }
 
 }
