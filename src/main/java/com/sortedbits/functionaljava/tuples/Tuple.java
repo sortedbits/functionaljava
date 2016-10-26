@@ -2,9 +2,11 @@ package com.sortedbits.functionaljava.tuples;
 
 import com.sortedbits.functionaljava.Arity;
 
-public interface Tuple extends Arity {
+import java.io.Serializable;
 
-    static final Tuple0 UNIT = Tuple0.INSTANCE;
+public interface Tuple extends Arity, Serializable {
+
+    Tuple0 UNIT = Tuple0.INSTANCE;
 
     static <T1> Tuple1<T1> of(T1 _1) {
         return new Tuple1<>(_1);

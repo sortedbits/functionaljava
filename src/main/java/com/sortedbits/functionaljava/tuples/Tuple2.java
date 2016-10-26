@@ -1,8 +1,11 @@
 package com.sortedbits.functionaljava.tuples;
 
+import java.util.Map;
 import java.util.Objects;
 
-public class Tuple2<T1, T2> implements Tuple {
+public class Tuple2<T1, T2> implements Tuple, Map.Entry<T1, T2> {
+
+    private static final long serialVersionUID = 1L;
 
     public final T1 _1;
     public final T2 _2;
@@ -15,6 +18,21 @@ public class Tuple2<T1, T2> implements Tuple {
     @Override
     public final int arity() {
         return 2;
+    }
+
+    @Override
+    public T1 getKey() {
+        return _1;
+    }
+
+    @Override
+    public T2 getValue() {
+        return _2;
+    }
+
+    @Override
+    public T2 setValue(T2 value) {
+        throw new UnsupportedOperationException("Tuple2.setValue");
     }
 
     @Override

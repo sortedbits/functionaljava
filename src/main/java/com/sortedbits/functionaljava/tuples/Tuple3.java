@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Tuple3<T1, T2, T3> implements Tuple {
 
+    private static final long serialVersionUID = 1L;
+
     public final T1 _1;
     public final T2 _2;
     public final T3 _3;
