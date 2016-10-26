@@ -1,19 +1,17 @@
 package com.sortedbits.functionaljava.functions;
 
 import com.sortedbits.functionaljava.Either;
+import com.sortedbits.functionaljava.Try;
+
+import static com.sortedbits.functionaljava.Either.either;
+import static com.sortedbits.functionaljava.suppliers.CheckedSupplier.checkedSupplier;
 
 @FunctionalInterface
-public interface SafeFunction1<T, R> {
+public interface SafeFunction1<T, R> extends Function1<T, Either<Throwable, R>> {
 
-    Either<Throwable, R> apply(T x);
+    R applyThrows(T x1) throws Exception;
 
-    static <T, R> Function1<T, Either<Throwable, R>> safe(java.util.function.Function<T, R> f) {
-        return (T x) -> {
-            try {
-                return Either.right(f.apply(x));
-            } catch (Throwable error) {
-                return Either.left(error);
-            }
-        };
+    default Either<Throwable, R> apply(T x) {
+        return either(Try.of(checkedSupplier(this::applyThrows, x)));
     }
 }

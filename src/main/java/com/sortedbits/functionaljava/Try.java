@@ -1,11 +1,12 @@
 package com.sortedbits.functionaljava;
 
+import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
 public interface Try<R> {
 
     final class Success<R> implements Try<R> {
-        final R value;
+        public final R value;
 
         @Override
         public boolean isSuccess() {
@@ -23,7 +24,7 @@ public interface Try<R> {
     }
 
     final class Failure<R> implements Try<R> {
-        final Throwable error;
+        public final Throwable error;
 
         @Override
         public boolean isSuccess() {
@@ -50,6 +51,24 @@ public interface Try<R> {
 
     static <R> Failure<R> failure(Throwable error) {
         return new Failure<>(error);
+    }
+
+    static <R> R getValue(Try<R> t) {
+        if (t.isSuccess()) {
+            Success<R> x = (Success<R>)t;
+            return x.value;
+        } else {
+            throw new NoSuchElementException("Error.getValue");
+        }
+    }
+
+    static <R> Throwable getError(Try<R> t) {
+        if (t.isFailure()) {
+            Failure<R> x = (Failure<R>)t;
+            return x.error;
+        } else {
+            throw new NoSuchElementException("Success.getError");
+        }
     }
 
     static <R> Try<R> of(Supplier<R> supplier) {
