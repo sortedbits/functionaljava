@@ -26,6 +26,6 @@ public class Tuple0 implements Tuple {
 
     @Override
     public String toString() {
-        return String.format("()");
+        return "()";
     }
 }
