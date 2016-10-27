@@ -1,13 +1,14 @@
 package com.sortedbits.functionaljava;
 
 import com.sortedbits.functionaljava.tuples.Tuple;
+import com.sortedbits.functionaljava.tuples.Tuple2;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.sortedbits.functionaljava.CollectionOps.list;
-import static com.sortedbits.functionaljava.StringOps.mkString;
-import static com.sortedbits.functionaljava.tuples.Tuple.UNIT;
+import static com.sortedbits.functionaljava.CollectionOps.zip;
 import static com.sortedbits.functionaljava.tuples.Tuple.pair;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -31,5 +32,13 @@ public class CollectionOpsTest {
         Map<Integer, String> m21 = CollectionOps.map(pair(1, "a"), pair(1, "b"));
         assertThat(m21.size(), equalTo(1));
         assertThat(m21.get(1), equalTo("b"));
+    }
+
+    @Test
+    public void zipTest() {
+        List<Integer> xs = list(1, 2, 3);
+        List<String> ys = list("a", "b", "c");
+        List<Tuple2<Integer, String>> zs = zip(xs,ys);
+        assertThat(zs = zip(xs,ys), equalTo(list(pair(1, "a"), pair(2, "b"), pair(3, "c"))));
     }
 }
