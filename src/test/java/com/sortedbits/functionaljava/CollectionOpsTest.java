@@ -1,9 +1,7 @@
 package com.sortedbits.functionaljava;
 
-import com.sortedbits.functionaljava.tuples.Tuple;
 import com.sortedbits.functionaljava.tuples.Tuple2;
 import org.junit.Test;
-
 import java.util.List;
 import java.util.Map;
 
