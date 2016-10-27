@@ -1,6 +1,7 @@
 package com.sortedbits.functionaljava.control;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public interface Try<R> {
@@ -44,6 +45,18 @@ public interface Try<R> {
     boolean isSuccess();
 
     boolean isFailure();
+
+    default void ifSuccess(Consumer<R> c) {
+        if (isSuccess()) {
+            c.accept(getValue(this));
+        }
+    }
+
+    default void ifFailure(Consumer<Throwable> c) {
+        if (isFailure()) {
+            c.accept(getError(this));
+        }
+    }
 
     static <R> Success<R> success(R value) {
         return new Success<>(value);
