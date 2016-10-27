@@ -4,6 +4,7 @@ import com.sortedbits.functionaljava.functions.Function2;
 
 import java.util.Iterator;
 import java.util.Spliterators;
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -35,16 +36,12 @@ public interface StreamOps {
         return Stream.concat(before, after);
     }
 
-    static <T> Stream<T> concat(T before, Stream<T> after) {
-        return Stream.concat(Stream.of(before), after);
-    }
-
-    static <T> Stream<T> concat(Stream<T> before, T after) {
-        return Stream.concat(before, Stream.of(after));
+    static <T> Stream<T> append(Stream<T> xs, T x) {
+        return Stream.concat(xs, Stream.of(x));
     }
 
     static <T> Stream<T> cons(T x, Stream<T> xs) {
-        return concat(x, xs);
+        return Stream.concat(Stream.of(x), xs);
     }
 
     static <T> Stream<T> stream(Iterator<T> it) {
@@ -55,11 +52,16 @@ public interface StreamOps {
     static <A, B> B foldRight(Stream<A> xs, B x, Function2<A, B, B> f) {
         return f.apply(head(xs), foldRight(tail(xs), x, f));
     }
-
-    static <A, B> B foldLeft(Stream<A> xs, B x, Function2<B, A, B> f) {
-        return null;
-    }
     */
+
+    static <A, B> B foldLeft(Stream<A> xs, B x, BiFunction<B, A, B> f) {
+        B result = x;
+        Iterator<A> it = xs.iterator();
+        while (it.hasNext()) {
+            result = f.apply(result, it.next());
+        }
+        return x;
+    }
 
     static <T> Stream<T> takeWhile(Stream<T> xs, Predicate<T> p) {
         throw new UnsupportedOperationException();
