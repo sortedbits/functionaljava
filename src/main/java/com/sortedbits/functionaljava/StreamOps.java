@@ -31,17 +31,35 @@ public interface StreamOps {
         }
     }
 
+    static <T> Stream<T> concat(Stream<T> before, Stream<T> after) {
+        return Stream.concat(before, after);
+    }
+
+    static <T> Stream<T> concat(T before, Stream<T> after) {
+        return Stream.concat(Stream.of(before), after);
+    }
+
+    static <T> Stream<T> concat(Stream<T> before, T after) {
+        return Stream.concat(before, Stream.of(after));
+    }
+
+    static <T> Stream<T> cons(T x, Stream<T> xs) {
+        return concat(x, xs);
+    }
+
     static <T> Stream<T> stream(Iterator<T> it) {
         return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it, ORDERED), false);
     }
 
-    static <A, B> Stream<B> foldRight(Stream<A> xs, B x, Function2<A, B, B> f) {
-        throw new UnsupportedOperationException();
+    /*
+    static <A, B> B foldRight(Stream<A> xs, B x, Function2<A, B, B> f) {
+        return f.apply(head(xs), foldRight(tail(xs), x, f));
     }
 
-    static <A, B> Stream<B> foldLeft(Stream<A> xs, B x, Function2<B, A, B> f) {
-        throw new UnsupportedOperationException();
+    static <A, B> B foldLeft(Stream<A> xs, B x, Function2<B, A, B> f) {
+        return null;
     }
+    */
 
     static <T> Stream<T> takeWhile(Stream<T> xs, Predicate<T> p) {
         throw new UnsupportedOperationException();
