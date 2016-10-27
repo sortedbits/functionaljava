@@ -25,11 +25,7 @@ public interface StreamOps {
         Iterator<T> it = xs.iterator();
         if (it.hasNext()) {
             it.next();
-            if (it.hasNext()) {
-                return stream(it);
-            } else {
-                return Stream.empty();
-            }
+            return (it.hasNext()) ? stream(it) : Stream.empty();
         } else {
             throw new StreamOpException("tail of empty stream");
         }

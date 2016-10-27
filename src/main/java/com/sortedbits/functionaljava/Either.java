@@ -1,7 +1,9 @@
 package com.sortedbits.functionaljava;
 
-import static com.sortedbits.functionaljava.Try.getError;
-import static com.sortedbits.functionaljava.Try.getValue;
+import com.sortedbits.functionaljava.control.Try;
+
+import static com.sortedbits.functionaljava.control.Try.getError;
+import static com.sortedbits.functionaljava.control.Try.getValue;
 import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 

@@ -1,7 +1,7 @@
 package com.sortedbits.functionaljava.functions;
 
 import com.sortedbits.functionaljava.Either;
-import com.sortedbits.functionaljava.Try;
+import com.sortedbits.functionaljava.control.Try;
 
 import static com.sortedbits.functionaljava.Either.either;
 import static com.sortedbits.functionaljava.suppliers.CheckedSupplier.checkedSupplier;

@@ -1,4 +1,4 @@
-package com.sortedbits.functionaljava;
+package com.sortedbits.functionaljava.control;
 
 import java.util.NoSuchElementException;
 import java.util.function.Supplier;
