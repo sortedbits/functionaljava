@@ -60,7 +60,7 @@ public interface StreamOps {
         while (it.hasNext()) {
             result = f.apply(result, it.next());
         }
-        return x;
+        return result;
     }
 
     static <T> Stream<T> takeWhile(Stream<T> xs, Predicate<T> p) {

@@ -1,13 +1,10 @@
 package com.sortedbits.functionaljava;
 
-import com.sortedbits.functionaljava.functions.Function2;
 import com.sortedbits.functionaljava.tuples.Tuple2;
 
 import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import static com.sortedbits.functionaljava.tuples.Tuple.pair;
 import static java.lang.Math.min;

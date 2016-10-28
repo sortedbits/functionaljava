@@ -28,6 +28,6 @@ public class StreamOpsTest {
     @Test
     public void foldLeftTest() {
         String[] xs = new String[] { "a", "b", "c" };
-        System.out.println(foldLeft(Stream.of(xs), "!", (x, y) -> x + y));
+        assertThat(foldLeft(Stream.of(xs), "!", (x, y) -> x + y), equalTo("!abc"));
     }
 }
