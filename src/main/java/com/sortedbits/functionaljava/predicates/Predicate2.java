@@ -7,10 +7,6 @@ public interface Predicate2<T1, T2> extends Predicate, java.util.function.BiPred
 
     @Override boolean test(T1 x1, T2 x2);
 
-    default int arity() {
-        return 2;
-    }
-
     default Boolean apply(T1 x1, T2 x2) {
         return test(x1, x2);
     }

@@ -7,10 +7,6 @@ public interface Predicate1<T> extends Predicate, java.util.function.Predicate<T
 
     @Override boolean test(T x);
 
-    default int arity() {
-        return 1;
-    }
-
     default Boolean apply(T x) {
         return test(x);
     }
