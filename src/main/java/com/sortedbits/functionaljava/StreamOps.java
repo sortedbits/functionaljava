@@ -13,6 +13,11 @@ import static java.util.Spliterator.ORDERED;
 
 public interface StreamOps {
 
+    static <T> Stream<T> stream(Iterator<T> it) {
+        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it, ORDERED), false);
+    }
+
+    /*
     static <T> T head(Stream<T> xs) {
         Iterator<T> it = xs.iterator();
         if (it.hasNext()) {
@@ -44,32 +49,7 @@ public interface StreamOps {
         return Stream.concat(Stream.of(x), xs);
     }
 
-    static <T> Stream<T> stream(Iterator<T> it) {
-        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it, ORDERED), false);
-    }
 
-    /*
-    static <A, B> B foldRight(Stream<A> xs, B x, Function2<A, B, B> f) {
-        return f.apply(head(xs), foldRight(tail(xs), x, f));
-    }
-    */
-
-    static <A, B> B foldLeft(Stream<A> xs, B x, BiFunction<B, A, B> f) {
-        B result = x;
-        Iterator<A> it = xs.iterator();
-        while (it.hasNext()) {
-            result = f.apply(result, it.next());
-        }
-        return result;
-    }
-
-    static <T> Stream<T> takeWhile(Stream<T> xs, Predicate<T> p) {
-        throw new UnsupportedOperationException();
-    }
-
-    static <T> Stream<T> dropWhile(Stream<T> xs, Predicate<T> p) {
-        throw new UnsupportedOperationException();
-    }
 
     final class StreamOpException extends RuntimeException {
 
@@ -77,4 +57,5 @@ public interface StreamOps {
             super(message);
         }
     }
+    */
 }
