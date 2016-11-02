@@ -4,11 +4,16 @@ import org.junit.Test;
 
 import java.util.stream.Stream;
 
+import static java.util.stream.Stream.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class StreamOpsTest {
 
+    public void test() {
+        Stream<String> ss = Stream.of("");
+
+    }
     /*
     @Test
     public void headTest() {
