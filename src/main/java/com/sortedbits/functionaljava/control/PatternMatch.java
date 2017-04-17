@@ -21,7 +21,6 @@ public class PatternMatch {
 
         @SafeVarargs
         public final <C> C of(Case<A, ?, C>... cases) {
-
             return stream(cases)
                     .map(c -> c.apply(exp))
                     .filter(Optional::isPresent)
