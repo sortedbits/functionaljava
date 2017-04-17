@@ -32,7 +32,6 @@ public class PatternMatch {
     }
 
     interface Pattern<A, B> extends Function<Nullable<A>, Optional<Nullable<B>>> {
-
     }
 
     public static class Case<A, B, C> implements Function<Nullable<A>, Optional<Nullable<C>>> {
@@ -68,14 +67,11 @@ public class PatternMatch {
     }
 
     public static <A> Pattern<A, A> value(A value) {
-
         return x -> new Nullable<>(value).equals(x) ? Optional.of(new Nullable<>(value)) : Optional.empty();
     }
 
     public static <A> Pattern<A, A> predicate(Predicate<A> predicate) {
-
         requireNonNull(predicate);
-
         return x -> predicate.test(x.get()) ? Optional.of(x) : Optional.empty();
     }
 
@@ -84,9 +80,7 @@ public class PatternMatch {
     }
 
     public static <B, C> Function<B, C> run(Consumer<B> consumer) {
-
         requireNonNull(consumer);
-
         return x -> {
             consumer.accept(x);
             return null;
